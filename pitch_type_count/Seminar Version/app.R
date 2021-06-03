@@ -17,19 +17,19 @@ ui <- fluidPage(
   column(4, wellPanel(
 
   h3("Pitch Locations by Pitch Type & Count"),
-  textInput(inputId = "pid", 
+  textInput(inputId = "pid",
             label = "Pitcher MLBAM Id:",
             value = "605400"),
-  
-  checkboxGroupInput(inputId = "pitch_type", 
+
+  checkboxGroupInput(inputId = "pitch_type",
                      label = "Pitch Type:",
                      choices = c("CH", "CU", "EP", "FC",
                                  "FF", "FO",  "FS", "FT",
                                  "KC", "KN", "SI", "SL"),
                      selected = "FF",
                      inline = TRUE),
-  
-  checkboxGroupInput(inputId = "count", 
+
+  checkboxGroupInput(inputId = "count",
                      label = "Count:",
                      choices = c("0-0", "1-0", "0-1", "2-0",
                                 "1-1", "0-2", "3-0", "2-1", "1-2",
@@ -44,6 +44,7 @@ ui <- fluidPage(
          )
 )
 
+# server function
 server <- function(input, output, session) {
 
   output$plot <- renderPlot({
@@ -57,7 +58,7 @@ server <- function(input, output, session) {
                input$pitch_type,
                input$pid
                )
-   
+
 }, res = 96)
 }
 

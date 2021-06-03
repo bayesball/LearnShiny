@@ -12,7 +12,7 @@ library(readr)
 sc2019_ip <- read_delim("https://raw.githubusercontent.com/bayesball/ShinyBaseball/main/data/sc2019_ip.txt",
            delim = " ")
 
-# user interface
+# user interface function
 ui <- fluidPage(
   theme = shinythemes::shinytheme("united"),
   column(4, wellPanel(
@@ -20,12 +20,12 @@ ui <- fluidPage(
          textInput("name", "Enter Batter Name:",
             value = "Mike Trout"),
          h4("Scatterplot shows pitch locations for balls put
-            into play.  Brush over a region of the scatterplot 
+            into play.  Brush over a region of the scatterplot
             and you will see the in-play batting average
             over the region.")
   )),
   column(8,
-         plotOutput("plot", 
+         plotOutput("plot",
                     brush = brushOpts("plot_brush",
                             fill = "#0000ff"),
               width = '455px'),
