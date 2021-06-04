@@ -3,6 +3,10 @@ library(ggplot2)
 library(dplyr)
 library(stringr)
 
+# read in data from Github site
+sc2019_ip <- read_delim("https://raw.githubusercontent.com/bayesball/ShinyBaseball/main/data/sc2019_ip.txt",
+                        delim = " ")
+
 ui <- fluidPage(
   theme = shinythemes::shinytheme("united"),
   column(4, wellPanel(
